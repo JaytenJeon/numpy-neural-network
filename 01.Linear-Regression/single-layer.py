@@ -38,9 +38,8 @@ def backward_propagation(X, Y, Z):
     dL_dZ = 2 * (Z - Y)
     dZ_dW = X
     dZ_db = 1
-
-    dL_dW = np.sum(dL_dZ * dZ_dW) / len(Y)
-    dL_db = np.sum(dL_dZ * dZ_db) / len(Y)
+    dL_dW = np.dot(dL_dZ.T, dZ_dW)
+    dL_db = np.sum(dL_dZ * dZ_db)
 
     grads = {"dW": dL_dW,
              "db": dL_db}
@@ -49,7 +48,7 @@ def backward_propagation(X, Y, Z):
 
 
 def update_parameters(parameters, grads, learning_rate):
-    parameters["W"] -= learning_rate * grads["dW"]
+    parameters["W"] -= learning_rate * grads["dW"].T
     parameters["b"] -= learning_rate * grads["db"]
 
     return parameters
@@ -88,3 +87,4 @@ for epoch in range(num_epochs):
 
 print(Y)
 print(Y_hat)
+
