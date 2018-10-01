@@ -82,7 +82,7 @@ parameters = initialize_parameters(X.shape[1], Y.shape[1])
 
 # 2. Loop N iteration (N: Num of epochs)
 for epoch in range(num_epochs):
-    # Forward Probagation
+    # Forward Propagation
     Y_hat = forward_propagation(X, parameters, "sigmoid")
 
     # Compute loss

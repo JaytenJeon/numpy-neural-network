@@ -100,7 +100,7 @@ parameters = initialize_parameters(X.shape[1], 4, Y.shape[1], num_layers)
 
 # 2. Loop N iteration (N: Num of epochs)
 for epoch in range(num_epochs):
-    # Forward Probagation
+    # Forward Propagation
     Y_hat, caches = forward_propagation(X, parameters)
 
     # Compute loss
